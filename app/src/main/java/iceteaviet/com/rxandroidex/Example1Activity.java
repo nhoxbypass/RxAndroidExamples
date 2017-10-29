@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
@@ -31,18 +33,16 @@ public class Example1Activity extends AppCompatActivity {
     * with the argument provided to Observable.just().
     * */
     private Observable<List<String>> listObservable;
-    private RecyclerView kingsmanList;
     private SimpleStringAdapter kingsmanAdapter;
-    private Button subscribeButton;
-    private TextView tvPlaceholder;
+    @BindView(R.id.rv_kingsman_list) protected RecyclerView kingsmanList;
+    @BindView(R.id.btn_subscribe) protected Button subscribeButton;
+    @BindView(R.id.tv_placeholder) protected TextView tvPlaceholder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example1);
-        kingsmanList = (RecyclerView) findViewById(R.id.rv_kingsman_list);
-        subscribeButton = (Button) findViewById(R.id.btn_subscribe);
-        tvPlaceholder = findViewById(R.id.tv_placeholder);
+        ButterKnife.bind(this);
 
         kingsmanList.setLayoutManager(new LinearLayoutManager(this));
         kingsmanAdapter = new SimpleStringAdapter(this);

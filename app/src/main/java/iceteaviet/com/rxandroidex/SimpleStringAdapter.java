@@ -11,6 +11,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Genius Doan on 10/20/2017.
  */
@@ -38,7 +41,7 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mColorDisplay.setText(mStrings.get(position));
+        holder.mDisplay.setText(mStrings.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,11 +57,11 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView mColorDisplay;
+        @BindView(R.id.tv_display)  TextView mDisplay;
 
         public ViewHolder(View view) {
             super(view);
-            mColorDisplay = (TextView) view.findViewById(R.id.color_display);
+            ButterKnife.bind(this, view);
         }
     }
 }

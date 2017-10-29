@@ -10,8 +10,12 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView rvExampleList;
+    @BindView(R.id.rv_example_list) protected RecyclerView rvExampleList;
+
     private ExampleListAdapter mAdapter;
     private List<String> exampleList;
 
@@ -19,12 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         exampleList = createExampleList();
         mAdapter = new ExampleListAdapter(exampleList);
-
-        rvExampleList = findViewById(R.id.rv_example_list);
-
         rvExampleList.setAdapter(mAdapter);
         rvExampleList.setLayoutManager(new LinearLayoutManager(this));
 

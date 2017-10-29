@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -22,12 +24,13 @@ import io.reactivex.schedulers.Schedulers;
 
 public class Example2Activity extends AppCompatActivity {
     private static final String TAG = Example2Activity.class.getSimpleName();
-    private Observable<List<String>> movieListObservable;
-    private Button btnSubscribe;
-    private ProgressBar progressBar;
-    private RecyclerView rvMovieList;
-    private TextView tvPlaceholder;
 
+    @BindView(R.id.btn_subscribe) protected Button btnSubscribe;
+    @BindView(R.id.loader) protected ProgressBar progressBar;
+    @BindView(R.id.rv_movie_list) protected RecyclerView rvMovieList;
+    @BindView(R.id.tv_placeholder) protected TextView tvPlaceholder;
+
+    private Observable<List<String>> movieListObservable;
     private RestClient mRestClient;
     private SimpleStringAdapter movieAdapter;
     private Disposable disposable;
@@ -37,10 +40,7 @@ public class Example2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example2);
-        btnSubscribe = (Button) findViewById(R.id.btn_subscribe);
-        progressBar = (ProgressBar) findViewById(R.id.loader);
-        rvMovieList = (RecyclerView) findViewById(R.id.rv_movie_list);
-        tvPlaceholder = findViewById(R.id.tv_placeholder);
+        ButterKnife.bind(this);
 
         mRestClient = new RestClient(this);
         movieAdapter = new SimpleStringAdapter(this);
