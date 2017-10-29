@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RxAndroidEx</string>
+    <string name="nothing_to_show">Nothing to show! Press Subscribe</string>
 </resources>

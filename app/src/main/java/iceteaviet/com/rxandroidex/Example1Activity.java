@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,29 +30,34 @@ public class Example1Activity extends AppCompatActivity {
     * the onNext() of the Observer is immediately called
     * with the argument provided to Observable.just().
     * */
-    private Observable<List<String>> listObservable = Observable.just(getKingsmanList());
+    private Observable<List<String>> listObservable;
     private RecyclerView kingsmanList;
-    private KingsmanAdapter kingsmanAdapter;
+    private SimpleStringAdapter kingsmanAdapter;
     private Button subscribeButton;
+    private TextView tvPlaceholder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example1);
-        kingsmanList = (RecyclerView) findViewById(R.id.color_list);
+        kingsmanList = (RecyclerView) findViewById(R.id.rv_kingsman_list);
         subscribeButton = (Button) findViewById(R.id.btn_subscribe);
+        tvPlaceholder = findViewById(R.id.tv_placeholder);
 
         kingsmanList.setLayoutManager(new LinearLayoutManager(this));
-        kingsmanAdapter = new KingsmanAdapter(this);
+        kingsmanAdapter = new SimpleStringAdapter(this);
         kingsmanList.setAdapter(kingsmanAdapter);
 
+        listObservable = Observable.just(getKingsmanList());
         subscribeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvPlaceholder.setVisibility(View.GONE);
+                kingsmanList.setVisibility(View.VISIBLE);
                 listObservable.subscribe(new Observer<List<String>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d(TAG, "onSubscribe");
+                        Log.d(TAG, "onSubscribe: " + d.getClass().toString());
                     }
 
                     @Override
@@ -62,7 +68,7 @@ public class Example1Activity extends AppCompatActivity {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d(TAG, "onError");
+                        Log.d(TAG, "onError: " + e.getMessage());
                     }
 
                     @Override

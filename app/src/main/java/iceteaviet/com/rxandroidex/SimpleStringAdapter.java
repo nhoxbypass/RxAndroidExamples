@@ -15,12 +15,12 @@ import java.util.List;
  * Created by Genius Doan on 10/20/2017.
  */
 
-public class KingsmanAdapter extends RecyclerView.Adapter<KingsmanAdapter.ViewHolder> {
+public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapter.ViewHolder> {
 
     private final Context mContext;
     private final List<String> mStrings = new ArrayList<>();
 
-    public KingsmanAdapter(Context context) {
+    public SimpleStringAdapter(Context context) {
         mContext = context;
     }
 
