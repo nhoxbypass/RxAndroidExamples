@@ -31,6 +31,17 @@ public class RestClient {
         return null;
     }
 
+    public List<String> getFavouriteMoviesWithExeption() {
+        try {
+            //Simulate the delay of network call
+            Thread.sleep(DEFAULT_DELAY_TIME);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        throw new RuntimeException("Failed to fetch data");
+    }
+
     private List<String> createFavouriteMovies() {
         List<String> list = new ArrayList<>();
 
