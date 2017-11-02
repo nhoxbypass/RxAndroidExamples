@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Example3Activity.class));
                         break;
 
+                    case 3:
+                        startActivity(new Intent(MainActivity.this, Example4Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("1 - Observable.just()");
         list.add("2 - Async network Observable.callable()");
         list.add("3 - Async network Single.callable()");
+        list.add("4 - Subject");
 
         return list;
     }
