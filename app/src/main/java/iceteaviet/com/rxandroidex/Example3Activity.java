@@ -1,7 +1,7 @@
 package iceteaviet.com.rxandroidex;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,21 +16,23 @@ import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class Example3Activity extends AppCompatActivity {
     private static final String TAG = Example3Activity.class.getSimpleName();
 
-    @BindView(R.id.btn_subscribe) protected Button btnSubscribe;
-    @BindView(R.id.loader) protected ProgressBar progressBar;
-    @BindView(R.id.rv_movie_list) protected RecyclerView rvMovieList;
-    @BindView(R.id.tv_placeholder) protected TextView tvPlaceholder;
+    @BindView(R.id.btn_subscribe)
+    protected Button btnSubscribe;
+    @BindView(R.id.loader)
+    protected ProgressBar progressBar;
+    @BindView(R.id.rv_movie_list)
+    protected RecyclerView rvMovieList;
+    @BindView(R.id.tv_placeholder)
+    protected TextView tvPlaceholder;
 
     private Single<List<String>> movieListSingle;
     private RestClient mRestClient;

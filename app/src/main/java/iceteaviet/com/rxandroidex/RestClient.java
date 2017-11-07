@@ -3,16 +3,17 @@ package iceteaviet.com.rxandroidex;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Genius Doan on 10/29/2017.
- *
+ * <p>
  * This is a mock REST Client. It simulates making blocking calls to an REST endpoint.
  */
 
 public class RestClient {
-    private final int DEFAULT_DELAY_TIME = 3000; //ms
+    private final int DEFAULT_DELAY_TIME = 1000; //ms
     private Context mContext;
 
     public RestClient(Context context) {
@@ -43,16 +44,31 @@ public class RestClient {
     }
 
     private List<String> createFavouriteMovies() {
-        List<String> list = new ArrayList<>();
+        return Arrays.asList(mContext.getResources().getStringArray(R.array.fav_movies));
+    }
 
-        list.add("Kingsman");
-        list.add("Starwars");
-        list.add("Harry Potter");
-        list.add("Geo Storm");
-        list.add("Spider man");
-        list.add("Wonder woman");
-        list.add("Thor");
+    public List<String> searchForCity(String searchString) {
+        try {
+            // "Simulate" the delay of network.
+            Thread.sleep(DEFAULT_DELAY_TIME);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return getMatchingCities(searchString);
+    }
 
-        return list;
+    private List<String> getMatchingCities(String searchString) {
+        if (searchString.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        String[] cities = mContext.getResources().getStringArray(R.array.city_list);
+        List<String> toReturn = new ArrayList<>();
+        for (String city : cities) {
+            if (city.toLowerCase().startsWith(searchString.toLowerCase())) {
+                toReturn.add(city);
+            }
+        }
+        return toReturn;
     }
 }

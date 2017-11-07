@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".Example3Activity" />
         <activity android:name=".Example4Activity" />
-        <activity android:name=".Example5Activity"></activity>
+        <activity android:name=".Example5Activity" />
+        <activity android:name=".Summary1Activity"></activity>
     </application>
 
 </manifest>

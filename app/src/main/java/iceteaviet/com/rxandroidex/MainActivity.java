@@ -1,11 +1,10 @@
 package iceteaviet.com.rxandroidex;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.rv_example_list) protected RecyclerView rvExampleList;
+    @BindView(R.id.rv_example_list)
+    protected RecyclerView rvExampleList;
 
     private ExampleListAdapter mAdapter;
     private List<String> exampleList;
@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Example5Activity.class));
                         break;
 
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, Summary1Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("3 - Async network Single.callable()");
         list.add("4 - Subject");
         list.add("5 - map() function");
+        list.add("Summary");
 
         return list;
     }

@@ -57,7 +57,8 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tv_display)  TextView mDisplay;
+        @BindView(R.id.tv_display)
+        TextView mDisplay;
 
         public ViewHolder(View view) {
             super(view);

@@ -1,7 +1,7 @@
 package iceteaviet.com.rxandroidex;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,10 +20,11 @@ import io.reactivex.functions.Function;
 //You can think of map as a function that takes in one value and outputs another value.
 public class Example5Activity extends AppCompatActivity {
     private static final String TAG = Example5Activity.class.getSimpleName();
-
+    @BindView(R.id.btn_map)
+    protected Button btnMap;
+    @BindView(R.id.tv_display)
+    protected TextView tvDisplay;
     private Single<Integer> single;
-    @BindView(R.id.btn_map) protected Button btnMap;
-    @BindView(R.id.tv_display) protected TextView tvDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

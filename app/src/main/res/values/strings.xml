@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">RxAndroidEx</string>
     <string name="nothing_to_show">Nothing to show! Press Subscribe</string>
+    <string name="search_hint">Input city name…</string>
+    <string name="no_results">No result</string>
 </resources>

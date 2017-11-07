@@ -43,8 +43,14 @@ public class ExampleListAdapter extends RecyclerView.Adapter<ExampleListAdapter.
         return exampleList.size();
     }
 
+    public interface OnItemClickListener {
+        public void onItemClick(int position);
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_name) TextView tvName;
+        @BindView(R.id.tv_name)
+        TextView tvName;
+
         ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -58,9 +64,5 @@ public class ExampleListAdapter extends RecyclerView.Adapter<ExampleListAdapter.
                 }
             });
         }
-    }
-
-    public interface OnItemClickListener {
-        public void onItemClick(int position);
     }
 }
