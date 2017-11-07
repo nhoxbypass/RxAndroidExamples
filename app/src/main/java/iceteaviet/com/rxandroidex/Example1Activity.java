@@ -57,27 +57,33 @@ public class Example1Activity extends AppCompatActivity {
                 listObservable.subscribe(new Observer<List<String>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d(TAG, "onSubscribe: " + d.getClass().toString());
+                        Log.d(TAG, "onSubscribe: " + d.getClass().toString() + ". Thread: " + Thread.currentThread().getName());
                     }
 
                     @Override
                     public void onNext(@NonNull List<String> strings) {
-                        Log.d(TAG, "onNext");
+                        Log.d(TAG, "onNext" + ". Thread: " + Thread.currentThread().getName());
                         kingsmanAdapter.setStrings(strings);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d(TAG, "onError: " + e.getMessage());
+                        Log.d(TAG, "onError: " + e.getMessage() + ". Thread: " + Thread.currentThread().getName());
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d(TAG, "onComplete");
+                        Log.d(TAG, "onComplete" + ". Thread: " + Thread.currentThread().getName());
                     }
                 });
             }
         });
+
+        //Result after click subscribe button
+        //D/Example1Activity: onSubscribe: class io.reactivex.internal.operators.observable.ObservableScalarXMap$ScalarDisposable. Thread: main
+        //D/Example1Activity: onNext. Thread: main
+        //D/Example1Activity: onComplete. Thread: main
+
     }
 
     private List<String> getKingsmanList() {

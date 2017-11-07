@@ -61,6 +61,7 @@ public class Example3Activity extends AppCompatActivity {
             @Override
             public List<String> call() throws Exception {
                 //return mRestClient.getFavouriteMovies();
+                Log.d(TAG, "call()" + ". Thread: " + Thread.currentThread().getName());
                 return mRestClient.getFavouriteMoviesWithExeption();
             }
         });
@@ -77,7 +78,7 @@ public class Example3Activity extends AppCompatActivity {
                         .subscribe(new SingleObserver<List<String>>() {
                             public void onSubscribe(Disposable d) {
                                 disposable = d;
-                                Log.d(TAG, "onSubscribe: " + d.getClass().toString());
+                                Log.d(TAG, "onSubscribe: " + d.getClass().toString() + ". Thread: " + Thread.currentThread().getName());
                             }
 
                             @Override
@@ -92,11 +93,16 @@ public class Example3Activity extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 tvPlaceholder.setVisibility(View.VISIBLE);
                                 rvMovieList.setVisibility(View.GONE);
-                                Log.d(TAG, "onError: " + e.getMessage());
+                                Log.d(TAG, "onError: " + e.getMessage() + ". Thread: " + Thread.currentThread().getName());
                             }
                         });
             }
         });
+
+        //Result after click subscribe button
+        //D/Example3Activity: onSubscribe: class io.reactivex.internal.operators.single.SingleObserveOn$ObserveOnSingleObserver. Thread: main
+        //D/Example3Activity: call(). Thread: RxCachedThreadScheduler-1
+        //D/Example3Activity: onError: Failed to fetch data. Thread: main
     }
 
     private void displayMovies(List<String> movies) {

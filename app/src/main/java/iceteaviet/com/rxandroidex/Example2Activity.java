@@ -80,7 +80,7 @@ public class Example2Activity extends AppCompatActivity {
                             @Override
                             public void onSubscribe(@NonNull Disposable d) {
                                 disposable = d;
-                                Log.d(TAG, "onSubscribe: " + d.getClass().toString());
+                                Log.d(TAG, "onSubscribe: " + d.getClass().toString() + ". Thread: " + Thread.currentThread().getName());
                             }
 
                             @Override
@@ -92,16 +92,23 @@ public class Example2Activity extends AppCompatActivity {
                             @Override
                             public void onError(@NonNull Throwable e) {
                                 Toast.makeText(Example2Activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "onError: " + e.getMessage());
+                                Log.d(TAG, "onError: " + e.getMessage() + ". Thread: " + Thread.currentThread().getName());
                             }
 
                             @Override
                             public void onComplete() {
-                                Log.d(TAG, "onComplete");
+                                Log.d(TAG, "onComplete" + ". Thread: " + Thread.currentThread().getName());
                             }
                         });
             }
         });
+
+        //Result after click subscribe button
+        //D/Example2Activity: onClick() thread: main
+        //D/Example2Activity: onSubscribe: class io.reactivex.internal.operators.observable.ObservableObserveOn$ObserveOnObserver. Thread: main
+        //D/Example2Activity: call() thread: RxCachedThreadScheduler-1
+        //D/Example2Activity: onNext() thread: main
+        //D/Example2Activity: onComplete. Thread: main
     }
 
     @Override

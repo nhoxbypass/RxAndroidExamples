@@ -49,23 +49,23 @@ public class Example4Activity extends AppCompatActivity {
                 counterEmitter.subscribe(new Observer<Integer> () {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d(TAG, "onSubscribe: " + d.getClass().toString());
+                        Log.d(TAG, "onSubscribe: " + d.getClass().toString() + ". Thread: " + Thread.currentThread().getName());
                     }
 
                     @Override
                     public void onNext(Integer o) {
-                        Log.d(TAG, "onNext" + o);
+                        Log.d(TAG, "onNext" + o + ". Thread: " + Thread.currentThread().getName());
                         displayView.setText(String.valueOf(o));
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(TAG, "onError: " + e.getMessage());
+                        Log.d(TAG, "onError: " + e.getMessage() + ". Thread: " + Thread.currentThread().getName());
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d(TAG, "onComplete");
+                        Log.d(TAG, "onComplete" + ". Thread: " + Thread.currentThread().getName());
                     }
                 });
             }
@@ -80,5 +80,13 @@ public class Example4Activity extends AppCompatActivity {
                 counterEmitter.onNext(count);
             }
         });
+
+        //Result after click subscribe button
+        //D/Example4Activity: onSubscribe: class io.reactivex.subjects.PublishSubject$PublishDisposable. Thread: main
+
+        //Result after click increment button 3 times
+        //D/Example4Activity: onNext1. Thread: main
+        //D/Example4Activity: onNext2. Thread: main
+        //D/Example4Activity: onNext3. Thread: main
     }
 }
