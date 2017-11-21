@@ -33,6 +33,11 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
         notifyDataSetChanged();
     }
 
+    public void addString(String string) {
+        mStrings.add(string);
+        notifyItemInserted(mStrings.size());
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.string_list_item, parent, false);
@@ -54,6 +59,8 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
     public int getItemCount() {
         return mStrings.size();
     }
+
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 

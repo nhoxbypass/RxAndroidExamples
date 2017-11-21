@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Summary1Activity.class));
                         break;
 
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, Example6Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -73,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("3 - Async network Single.callable()");
         list.add("4 - Subject");
         list.add("5 - map() function");
-        list.add("Summary");
+        list.add("Summary 1");
+        list.add("6 - Schedulers");
 
         return list;
     }
