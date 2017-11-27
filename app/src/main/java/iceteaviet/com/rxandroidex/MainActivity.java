@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Example6Activity.class));
                         break;
 
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, Example7Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -79,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("5 - map() function");
         list.add("Summary 1");
         list.add("6 - Schedulers");
+        list.add("7 - Hot/cold observable");
 
         return list;
     }
