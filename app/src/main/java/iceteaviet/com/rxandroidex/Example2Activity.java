@@ -16,6 +16,8 @@ import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import iceteaviet.com.rxandroidex.adapter.SimpleStringAdapter;
+import iceteaviet.com.rxandroidex.rest.RestClient;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

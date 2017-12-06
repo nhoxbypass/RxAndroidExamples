@@ -1,20 +1,20 @@
 package iceteaviet.com.rxandroidex;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import iceteaviet.com.rxandroidex.adapter.SimpleStringAdapter;
+import iceteaviet.com.rxandroidex.rest.RestClient;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -171,7 +171,9 @@ public class Example7Activity extends AppCompatActivity {
             }
         });
 
-        //Hot observable is ...
+        //HOT
+        //Hot observable is an observable which multiple subscribers can attached BEFORE executing the request
+        // Hot observable ONLY begin to emit events when we call connect() method
         //When click subscribe button before click connect
         //                  -> onSubscribe: 1. Thread: main
         //                  -> onSubscribe: 2. Thread: main
@@ -188,8 +190,20 @@ public class Example7Activity extends AppCompatActivity {
         // IF
         // Call connect() before subscribing -> no onNext() will be called.
 
-        //Cold observable is ...
+        //COLD
+        //By default, Observables are initialized to begin executing after the first subscriber is attached. operates in this way, which are known as COLD observables.
         // Convert back to COLD observable from HOT observable using autoConnect()
         //After this, everything will become the Example 2.
+
+        //In short way:
+        // Observables are just functions! ->  that tie an observer to a producer, transfer product to observer thru events.
+        // *Producer is source of values for your app, it could be DOM events, it could be an iterator,
+        // or something looping over an array. Basically, it’s anything you’re using to get values and pass them to `observer.next(value)`
+        // An Observable consider
+        // - COLD is when your observable creates the producer, producer is created inside observable.
+        // - HOT is when your observable closes over the producer, producer is created outside observable
+        // -> You want a HOT observable when you don’t want to create your producer over and over again.
+
+        //@See: https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
     }
 }

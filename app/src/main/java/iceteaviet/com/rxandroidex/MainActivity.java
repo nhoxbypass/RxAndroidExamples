@@ -11,6 +11,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import iceteaviet.com.rxandroidex.adapter.ExampleListAdapter;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rv_example_list)
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Example7Activity.class));
                         break;
 
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, Example8Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -84,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("Summary 1");
         list.add("6 - Schedulers");
         list.add("7 - Hot/cold observable");
+        list.add("8 - Retrofit with Observable");
 
         return list;
     }

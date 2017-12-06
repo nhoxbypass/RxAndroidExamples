@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="iceteaviet.com.rxandroidex">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +24,8 @@
         <activity android:name=".Example5Activity" />
         <activity android:name=".Summary1Activity" />
         <activity android:name=".Example6Activity" />
-        <activity android:name=".Example7Activity"></activity>
+        <activity android:name=".Example7Activity" />
+        <activity android:name=".Example8Activity" />
     </application>
 
 </manifest>
