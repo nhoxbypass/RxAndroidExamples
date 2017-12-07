@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Example8Activity.class));
                         break;
 
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, Example9Activity.class));
+                        break;
+
                     default:
                         break;
                 }
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("6 - Schedulers");
         list.add("7 - Hot/cold observable");
         list.add("8 - Retrofit with Observable");
+        list.add("9 - RxLifeCycle");
 
         return list;
     }
