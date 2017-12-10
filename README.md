@@ -4,6 +4,31 @@
 
 Series of example designed to convery a basic understanding of Reactive Programming using [rxJava](https://github.com/ReactiveX/RxJava) & [rxAndroid](https://github.com/ReactiveX/RxAndroid)
 
+What is Reactive Programming?
+-------
+
+ - Reactive programming is an extension of the Observer software design pattern, where an object has a list of Observers that are dependent on it, and these Observers are notified by the object whenever it’s state changes.
+
+ - In computing, reactive programming is an asynchronous programming paradigm concerned with data streams and the propagation of change. 
+
+   So why do we need Asynchronous work? The simple answer is we want to improve the user experience. We want to make our application more responsive. We want to deliver a smooth user experience to our users without freezing the main thread, slowing them down and we don’t want to provide the jenky performance to our users.
+
+**Reactive code can simplify the process of writing async code.**
+
+It is hard to explain reactive programming in a nutshell. Well, at least I couldn’t find any. You can say that reactive programming is an Observer template on steroids. Or rather, reactive programming is programming aimed at flows. The main idea is in presenting events and data as flows that can be unified, filtered, transformed, and separated. Sounds quite vague but I hope some of the examples below will help make sense of it.
+
+What is Rx?
+-------
+
+Despite being a fairly new paradigm, reactive programming is receiving quite a major distribution. Libraries allowing to write reactive code have been implemented for multiple languages. Some of the most popular among such libraries are RxJava, RxKotlin, RxSwift, RxJS, etc.
+
+In simple words, In Rx programming data flows emitted by one component and the underlying structure provided by the Rx libraries will propagate those changes to another component those are registered to receive those data changes. Long story short: Rx is made up of three key points.
+
+**RX = OBSERVABLE + OBSERVER + SCHEDULERS**
+
+So in this repository, we are going to discuss these points in detail one by one.
+
+
 ## Table of Contents
 
 - [Example 1: First step in to rxJava and rxAndroid using Observable.just()](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example1Activity.java)
@@ -26,7 +51,7 @@ Series of example designed to convery a basic understanding of Reactive Programm
 
 About
 -------
-This RxAndroidExample repository is created and maintained by [Tam H. Doan](https://www.facebook.com/hieutam22) - an Junior Mobile Engineer - owner of [iceteaviet](iceteaviet.com)
+This RxAndroidExample repository is created and maintained by [nhoxbypass](https://www.facebook.com/hieutam22) - an junior mobile engineer - owner of [iceteaviet](iceteaviet.com).
 
 
 License
