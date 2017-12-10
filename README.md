@@ -17,11 +17,11 @@ Series of example designed to convery a basic understanding of Reactive Programm
    * [Schedulers](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L88)
   * [Publish subject](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L98)
   * [Observable flow](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L125)
-- [Example 6: Schedulers](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example6Activity.java)
+- [Example 6: Rx Schedulers](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example6Activity.java)
 - [Example 7: Hot/cold observable](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example7Activity.java)
-- [Example 8: Async network call using Retrofit together with Observable](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example8Activity.java)
+- [Example 8: Async network call using Retrofit combined with Observable](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example8Activity.java)
 - [Example 9: Avoid memory leaking using RxLifeCycle](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example9Activity.java)
-- [Example 10: Make Android UI more reactive using RxBinding](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example10Activity.java)
+- [Example 10: Make Android's UI more reactive using RxBinding](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example10Activity.java)
 - [About](#about)
 
 About
