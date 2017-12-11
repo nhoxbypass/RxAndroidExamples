@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Single;
-import io.reactivex.SingleObserver;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
@@ -24,7 +28,8 @@ public class Example5Activity extends AppCompatActivity {
     protected Button btnMap;
     @BindView(R.id.tv_display)
     protected TextView tvDisplay;
-    private Single<Integer> single;
+    private Observable<List<Integer>> observable;
+    private List<Integer> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,37 +37,65 @@ public class Example5Activity extends AppCompatActivity {
         setContentView(R.layout.activity_example5);
         ButterKnife.bind(this);
 
-        single = Single.just(22);
-        final Single<String> newSingle = single.map(new Function<Integer, String>() {
-            @Override
-            public String apply(Integer integer) throws Exception {
-                //maps can take in one value and output another
-                //This method will get called after onSubscribe
-                //Here we convert integer from Single<Integer>.just() to a String
-                //So it become a Single<String> object
-                Log.d(TAG, "apply: " + integer + ". Thread: " + Thread.currentThread().getName());
-                return String.valueOf(integer);
-            }
-        });
+        data = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        observable = Observable.just(data);
+
+        //The function: <R> Observable<R> map(Function<? super T, ? extends R> mapper)
+        //So the type of NEW Observable returned by map() function is R
+        // which also the type of the result returned by `R apply()` method
+        // which also generic type of Function<T, R>
+        // And because of `apply()` only return single value type R
+        // The NEW Observable also emit only 1 emission for each emission come to map() function (1 input map for 1 output)
+        // This is also the basic different from .flatMap() function
+        final Observable<String> newSingle = observable
+                .flatMap(new Function<List<Integer>, ObservableSource<Integer>>() {
+                    @Override
+                    public ObservableSource<Integer> apply(List<Integer> s) throws Exception {
+                        //flatMap() can transform the items which emitted by an Observable into Observables
+                        //Which mean take in one item and return an Observable
+                        //This method will get called after onSubscribe and before map-apply()
+                        // The "flat" mean this function can flatten the emissions from those into a single Observable
+                        Log.d(TAG, "flatMap: apply(). Thread: " + Thread.currentThread().getName());
+
+                        //Here we convert observable.just() to Observable.from() to emit multiple times
+                        return Observable.fromIterable(s); //map() CANNOT do sth like this!
+                    }
+                })
+                .map(new Function<Integer, String>() {
+                    @Override
+                    public String apply(Integer integer) throws Exception {
+                        //map() can take in one value and output another
+                        //This method will get called after onSubscribe
+                        //Here we convert Integer to a String
+                        //So it become a Observable<String> object
+                        Log.d(TAG, "map: apply() " + integer + ". Thread: " + Thread.currentThread().getName());
+                        return String.valueOf(integer);
+                    }
+                });
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newSingle.subscribe(new SingleObserver<String>() {
+                newSingle.subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         Log.d(TAG, "onSubscribe: " + d.getClass().toString() + ". Thread: " + Thread.currentThread().getName());
                     }
 
                     @Override
-                    public void onSuccess(String o) {
-                        Log.d(TAG, "onSuccess: " + o + ". Thread: " + Thread.currentThread().getName());
-                        tvDisplay.setText(o);
+                    public void onNext(String s) {
+                        String currText = tvDisplay.getText().toString();
+                        tvDisplay.setText(currText.concat(", ").concat(s));
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d(TAG, "onError: " + e.getMessage() + ". Thread: " + Thread.currentThread().getName());
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
             }

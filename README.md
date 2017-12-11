@@ -35,7 +35,7 @@ So in this repository, we are going to discuss these points in detail one by one
 - [Example 2: Async network call using Observable.callable()](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example2Activity.java)
 - [Example 3: Async network call using Single.callable()](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example3Activity.java)
 - [Example 4: Click counter using Subject](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example4Activity.java)
-- [Example 5: Convert number value stream to String value stream using map() function](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example5Activity.java)
+- [Example 5: Convert number value stream to String value stream using map() and flatMap() function](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example5Activity.java)
 - [Summary 1: Cities name search box](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java)
   * [debounce() operator](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L73)
   * [map() function](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L75)

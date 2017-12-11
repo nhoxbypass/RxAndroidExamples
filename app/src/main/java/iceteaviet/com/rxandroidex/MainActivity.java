@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("2 - Async network Observable.callable()");
         list.add("3 - Async network Single.callable()");
         list.add("4 - Subject");
-        list.add("5 - map() function");
+        list.add("5 - map() and flatMap() function");
         list.add("Summary 1");
         list.add("6 - Schedulers");
         list.add("7 - Hot/cold observable");

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="iceteaviet.com.rxandroidex.Example5Activity">
     <TextView
+        android:id="@+id/tv_display"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tv_display"
-        android:text="0"
-        android:textSize="40sp"
+        android:layout_above="@+id/btn_map"
         android:gravity="center"
-        android:layout_above="@+id/btn_map"/>
+        android:text="0"
+        android:textSize="40sp" />
     <Button
         android:id="@+id/btn_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:text="Single subscribe"/>
+        android:layout_alignParentRight="true"
+        android:text="Subscribe" />
 </RelativeLayout>
