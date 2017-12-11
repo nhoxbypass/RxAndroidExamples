@@ -2,7 +2,8 @@ package iceteaviet.com.rxandroidex.rest;
 
 import java.util.List;
 
-import iceteaviet.com.rxandroidex.model.SamplePojo;
+import iceteaviet.com.rxandroidex.model.Post;
+import iceteaviet.com.rxandroidex.model.User;
 import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,8 +15,11 @@ import retrofit2.http.GET;
 //Root will be https://jsonplaceholder.typicode.com/
 public interface JsonPlaceholderService {
     @GET("posts")
-    Call<List<SamplePojo>> getListJson();
+    Call<List<Post>> getListPost();
 
     @GET("posts")
-    Observable<List<SamplePojo>> getListJsonObservable();
+    Observable<List<Post>> getListPostObservable();
+
+    @GET("users/1")
+    Observable<User> getUserObservable();
 }

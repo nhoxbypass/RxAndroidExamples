@@ -4,7 +4,7 @@ package iceteaviet.com.rxandroidex.model;
  * Created by Genius Doan on 12/4/2017.
  */
 
-public class SamplePojo {
+public class Post {
     private Integer userId;
     private Integer id;
     private String title;
