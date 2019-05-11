@@ -44,7 +44,7 @@ So in this repository, we are going to discuss these points in detail one by one
   * [Observable flow](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Summary1Activity.java#L125)
 - [Example 6: Rx Schedulers](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example6Activity.java)
 - [Example 7: Hot/cold observable](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example7Activity.java)
-- [Example 8: Async network call using Retrofit combined with Observable](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example8Activity.java)
+- [Example 8: Async network call using Retrofit combined with Observable zip() operator](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example8Activity.java)
 - [Example 9: Avoid memory leaking using RxLifeCycle](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example9Activity.java)
 - [Example 10: Make Android's UI more reactive using RxBinding](https://github.com/nhoxbypass/RxAndroidEx/blob/master/app/src/main/java/iceteaviet/com/rxandroidex/Example10Activity.java)
 - [About](#about)
